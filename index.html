@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Commit Comment</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <section class="row">
+    <section class="cols">
+      <h2>Ticket Tracker</h2>
+      <label><input type="radio" name="tracker" value="FT" /><i>FT</i> <p>機能追加、仕様変更に伴う機能修正</p></label><br>
+      <label><input type="radio" name="tracker" value="BG" /><i>BG</i> <p>テスト中、リリース後に発生した不具合</p></label><br>
+      <label><input type="radio" name="tracker" value="SU" /><i>SU</i> <p>プログラム変更をともなわない作業依頼</p></label><br>
+      <label><input type="radio" name="tracker" value="DS" /><i>DS</i> <p>画像の差し替え、文言変更、ページ作成など<br>フロントUIに関わる作業</p></label><br>
+      <label><input type="radio" name="tracker" value="RF" /><i>RF</i> <p>機能追加、仕様変更をともなわない<br>プログラム構造の変更、整理、速度改善</p></label><br>
+      <label><input type="radio" name="tracker" value="IN" /><i>IN</i> <p>サーバーの新設、メモリ増設などの<br>インフラ作業全般</p></label><br>
+
+      <h2>Ticket Number</h2>
+      <input type="number" name="ticket" min="0" />
+
+      <h2>Ticket Keyword <small>(optional)</small></h2>
+      <input type="text" name="keyword" />
+    </section>
+
+    <section class="cols">
+      <h2>Emoji</h2>
+      <label><input type="radio" name="emoji" value=":bug:" /><i>&#x1F41B;</i> <p>バグ修正</p></label><br>
+      <label><input type="radio" name="emoji" value=":+1:" /><i>&#x1F44D;</i> <p>機能追加、仕様変更にともなう機能修正</p></label><br>
+      <label><input type="radio" name="emoji" value=":sparkles:" /><i>&#x2728;</i> <p>部分的な機能追加</p></label><br>
+      <label><input type="radio" name="emoji" value=":gem:" /><i>&#x1F48E;</i> <p>リファクタリング</p></label><br>
+      <label><input type="radio" name="emoji" value=":x:" /><i>&#x274C;</i> <p>不要な機能・ソースの削除</p></label><br>
+      <label><input type="radio" name="emoji" value=":dress:" /><i>&#x1F457;</i> <p>コードスタイルの修正<br>（空白削除、インデント変更など）</p></label><br>
+      <label><input type="radio" name="emoji" value=":dash:" /><i>&#x1F4A8;</i> <p>パフォーマンス改善</p></label><br>
+      <label><input type="radio" name="emoji" value=":up:" /><i>&#x1F199;</i> <p>依存パッケージなどのアップデート</p></label><br>
+      <label><input type="radio" name="emoji" value=":cop:" /><i>&#x1F46E;</i> <p>セキュリティ関連の改善</p></label><br>
+    </section>
+  </section>
+
+  <section class="comment">
+    <h2>Commit Comment</h2>
+    <input type="text"  id="output" readonly />
+    <span id="copied">Copied</span>
+  </section>
+
+  <section class="history">
+    <h2>Ticket History</h2>
+    <ul id="history-list"></ul>
+  </section>
+
+  <script src="./app.js"></script>
+</body>
+</html>
