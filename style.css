@@ -12,6 +12,7 @@ body {
 	vertical-align: top;
 }
 
+/* 見出し */
 h2 {
 	margin: 0 0 .25em;
 	font-size: 14px;
@@ -21,6 +22,7 @@ h2 ~ h2 {
 }
 
 
+/* radio */
 label {
 	display: inline-block;
 	margin-bottom: .75em;
@@ -28,7 +30,6 @@ label {
 	cursor: pointer;
 	user-select: none;
 }
-
 input[type="radio"] {
 	margin: 0;
 	-webkit-appearance: none;
@@ -43,17 +44,18 @@ i {
 	font-style: normal;
 	color: #666;
 }
-input[type="radio"]:checked + i {
-	border-color: #d8263c;
-	background-color: #fee;
-	color: #d8263c;
-}
-input[name="tracker"] + i {
-	font-size: 13px;
-}
-input[name="emoji"] + i {
-	font-size: 16px;
-}
+	input[type="radio"]:checked + i {
+		border-color: #d8263c;
+		background-color: #fee;
+		color: #d8263c;
+	}
+	input[name="tracker"] + i {
+		font-size: 13px;
+	}
+	input[name="emoji"] + i {
+		font-size: 16px;
+	}
+
 p {
 	display: inline-block;
 	margin: 0 0 0 .25em;
@@ -61,33 +63,31 @@ p {
 	vertical-align: middle;
 }
 
-input[name="ticket"],
-input[name="keyword"] {
+
+input[type="text"],
+input[type="number"] {
 	display: block;
 	margin: 0 0 1.5em;
 	padding: .25em;
 }
 
+input[name="summary"] {
+	width: 30em;
+}
+
+
 .comment {
 	margin-top: 1.5em;
 }
-.comment input {
+.comment input[type="text"] {
+	margin-bottom: .5em;
 	padding: .75em;
 	border: none;
 	background-color: #000;
-	width: 20em;
+	width: 50em;
 	font-size: 14px;
 	font-family: monospace;
 	color: #fff;
-	cursor: pointer;
-}
-.comment span {
-	opacity: 0;
-	transition: opacity .2s;
-	color: #d8263c;
-}
-.comment span.fade {
-	opacity: 1;
 }
 
 
@@ -102,6 +102,7 @@ input[name="keyword"] {
 .history li {
 	margin-bottom: .5em;
 }
-.history button {
+.history button,
+.history a {
 	margin-right: .5em;
 }

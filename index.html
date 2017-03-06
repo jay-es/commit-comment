@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-  <section class="row">
+  <form class="row">
     <section class="cols">
       <h2>Ticket Tracker</h2>
       <label><input type="radio" name="tracker" value="FT" /><i>FT</i> <p>機能追加、仕様変更に伴う機能修正</p></label><br>
@@ -19,7 +19,7 @@
       <h2>Ticket Number</h2>
       <input type="number" name="ticket" min="0" />
 
-      <h2>Ticket Keyword <small>(optional)</small></h2>
+      <h2>Branch Keyword <small>(optional)</small></h2>
       <input type="text" name="keyword" />
     </section>
 
@@ -34,17 +34,20 @@
       <label><input type="radio" name="emoji" value=":dash:" /><i>&#x1F4A8;</i> <p>パフォーマンス改善</p></label><br>
       <label><input type="radio" name="emoji" value=":up:" /><i>&#x1F199;</i> <p>依存パッケージなどのアップデート</p></label><br>
       <label><input type="radio" name="emoji" value=":cop:" /><i>&#x1F46E;</i> <p>セキュリティ関連の改善</p></label><br>
+
+      <input type="text" name="summary" />
     </section>
-  </section>
+  </form>
 
   <section class="comment">
     <h2>Commit Comment</h2>
-    <input type="text"  id="output" readonly />
-    <span id="copied">Copied</span>
+    <input type="text" id="output" readonly />
+    <button value="comment">コメントのみコピー</button>
+    <button value="command">Gitコマンド付きコピー</button>
   </section>
 
   <section class="history">
-    <h2>Ticket History</h2>
+    <h2>Branch History</h2>
     <ul id="history-list"></ul>
   </section>
 

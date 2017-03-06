@@ -1,16 +1,24 @@
-const formData = {};
+const formData = {
+  tracker: '',
+  ticket: '',
+  keyword: '',
+  emoji: '',
+  summary: '',
+};
 const history = JSON.parse(localStorage.getItem('ticketHistory')) || [];
+const formEl = document.getElementsByTagName('form')[0];
 const outputEl = document.getElementById('output');
+const commentEl = document.getElementsByClassName('comment')[0];
 const listEl = document.getElementById('history-list');
 
 // コミットコメントを作る
 const generateComment = () => {
   if (!formData.tracker || !formData.ticket || !formData.emoji) return;
 
-  outputEl.value = `${formData.tracker} #${formData.ticket} ${formData.emoji} `;
+  outputEl.value = `${formData.tracker} #${formData.ticket} ${formData.emoji} ${formData.summary}`;
 };
 
-// trackerとticketを復元する
+// historyの値を復元する
 const restoreValues = (v) => {
   const [trackerName, ticketNo, keyword] = v.split('-');
 
@@ -34,7 +42,7 @@ const removeHistory = (v) => {
 
 // historyの先頭に追加する
 const addHistory = (v) => {
-  // すでに入っていたら消す
+  // すでに同じものが入っていたら消す
   removeHistory(v);
 
   // 先頭に追加
@@ -43,7 +51,7 @@ const addHistory = (v) => {
   localStorage.setItem('ticketHistory', JSON.stringify(history));
 };
 
-// Ticket HistoryのDOMを書き出す
+// Branch HistoryのDOMを書き出す
 const createList = () => {
   listEl.innerHTML = '';
   const fragment = document.createDocumentFragment();
@@ -61,6 +69,13 @@ const createList = () => {
     remove.value = v;
     li.appendChild(remove);
 
+    const link = document.createElement('a');
+    const [, ticketNo] = v.split('-');
+    link.textContent = 'Redmine';
+    link.href = `https://kbn.glamour-sales.com/issues/${ticketNo}`;
+    link.target = '_blank';
+    li.appendChild(link);
+
     const text = document.createElement('span');
     text.textContent = v;
     li.appendChild(text);
@@ -76,19 +91,12 @@ const copyText = (textVal) => {
   const tmpForm = document.createElement('textarea');
   tmpForm.textContent = textVal;
 
-  const body = document.getElementsByTagName('body')[0];
-  body.appendChild(tmpForm);
+  commentEl.appendChild(tmpForm);
 
   tmpForm.select();
   document.execCommand('copy');
 
-  body.removeChild(tmpForm);
-
-  const copied = document.getElementById('copied');
-  copied.classList.add('fade');
-  setTimeout(() => {
-    copied.classList.remove('fade');
-  }, 600);
+  commentEl.removeChild(tmpForm);
 };
 
 // データがあったら前回の状態を復元
@@ -98,7 +106,7 @@ if (history.length) {
 }
 
 // form changeイベント
-document.addEventListener('change', (e) => {
+formEl.addEventListener('change', (e) => {
   const target = e.target;
   if (!target.hasAttribute('name')) return;
 
@@ -106,12 +114,26 @@ document.addEventListener('change', (e) => {
   generateComment();
 });
 
-// コミットコメントをクリックした時
-outputEl.addEventListener('click', (e) => {
-  if (!e.target.value || !formData.tracker || !formData.ticket) return;
+// コピーボタン
+commentEl.addEventListener('click', (e) => {
+  if (e.target.tagName.toLowerCase() !== 'button') return;
 
-  copyText(e.target.value);
-  const currentValue = `${formData.tracker}-${formData.ticket}-${formData.keyword}`;
+  const textVal = outputEl.value;
+
+  if (!textVal || !formData.tracker || !formData.ticket) return;
+
+  // クリップボードにコピー
+  if (e.target.value === 'command') {
+    copyText(`git commit -m "${textVal}"`);
+  } else {
+    copyText(textVal);
+  }
+
+  // 履歴に追加する値
+  let currentValue = `${formData.tracker}-${formData.ticket}`;
+  if (formData.keyword) {
+    currentValue = `${currentValue}-${formData.keyword}`;
+  }
 
   // 前回と同じなら終了
   if (currentValue === history[0]) return;
