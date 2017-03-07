@@ -106,13 +106,16 @@ if (history.length) {
 }
 
 // form changeイベント
-formEl.addEventListener('change', (e) => {
+const formEventHandler = (e) => {
   const target = e.target;
   if (!target.hasAttribute('name')) return;
 
   formData[target.name] = target.value;
   generateComment();
-});
+};
+
+formEl.addEventListener('change', formEventHandler);
+formEl.addEventListener('input', formEventHandler);
 
 // コピーボタン
 commentEl.addEventListener('click', (e) => {
