@@ -145,16 +145,20 @@ commentEl.addEventListener('click', (e) => {
   createList();
 });
 
-// 履歴のボタン
+// 履歴リスト
 listEl.addEventListener('click', (e) => {
   const target = e.target;
-  if (target.tagName.toLowerCase() !== 'button') return;
 
-  if (target.classList.contains('restore')) {
-    restoreValues(target.value);
-    generateComment();
-  } else if (target.classList.contains('remove')) {
-    removeHistory(target.value);
-    createList();
+  if (target.tagName.toLowerCase() === 'button') {
+    // ボタンの処理
+    if (target.classList.contains('restore')) {
+      restoreValues(target.value);
+      generateComment();
+    } else if (target.classList.contains('remove')) {
+      removeHistory(target.value);
+      createList();
+    }
+  } else if (target.tagName.toLowerCase() === 'span') {
+    copyText(target.textContent);
   }
 });

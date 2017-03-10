@@ -75,6 +75,10 @@ input[name="summary"] {
 	width: 30em;
 }
 
+button {
+	cursor: pointer;
+}
+
 
 .comment {
 	margin-top: 1.5em;
@@ -105,4 +109,13 @@ input[name="summary"] {
 .history button,
 .history a {
 	margin-right: .5em;
+}
+.history span {
+	cursor: pointer;
+}
+.history span:hover {
+	color: #d8263c;
+}
+.history span:active {
+	color: inherit;
 }
