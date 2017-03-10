@@ -18,3 +18,4 @@ https://jshindo-gladd.github.io/commit-comment/index.html
 - restoreボタンを押すと、トラッカー、チケット番号、キーワードが復元される
 - removeボタンを押すと、その履歴が削除される
 - Redmineリンクを押すとチケットのページが新しいタブで開く
+- ブランチ名をクリックするとクリップボードにコピーされる
