@@ -20,11 +20,12 @@ const generateComment = () => {
 
 // historyの値を復元する
 const restoreValues = (v) => {
-  const [trackerName, ticketNo, ...keyword] = v.split('-');
+  const [trackerName, ticketNo, ...keywords] = v.split('-');
+  const keyword = keywords.join('-');
 
   document.querySelector(`input[name="tracker"][value="${trackerName}"]`).checked = true;
   document.querySelector('input[name="ticket"]').value = ticketNo;
-  document.querySelector('input[name="keyword"]').value = keyword.join('-') || '';
+  document.querySelector('input[name="keyword"]').value = keyword || '';
 
   formData.tracker = trackerName;
   formData.ticket = ticketNo;
