@@ -5,6 +5,7 @@ const sass = require('gulp-sass');
 const jsPath = 'src/scripts/';
 const jsFiles = [
   `${jsPath}pubsub-es2015.js`,
+  `${jsPath}cc.js`,
   `${jsPath}historyData.js`,
   `${jsPath}form.js`,
   `${jsPath}comment.js`,
@@ -15,6 +16,5 @@ const jsFiles = [
 gulp.task('js', () => {
   gulp.src(jsFiles)
   .pipe(concat('app.js'))
-  .pipe(uglify('app.min.js'))
   .pipe(gulp.dest('dist'));
 });
