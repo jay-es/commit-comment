@@ -2,11 +2,11 @@
   const listEl = document.getElementById('history-list');
 
   // Branch HistoryのDOMを書き出す
-  const createList = () => {
+  const createList = (historyData) => {
     listEl.innerHTML = '';
     const fragment = document.createDocumentFragment();
 
-    cc.historyData.data.forEach((v) => {
+    historyData.forEach((v) => {
       const li = document.createElement('li');
 
       const restore = document.createElement('button');
@@ -36,6 +36,8 @@
     listEl.appendChild(fragment);
   };
 
+  pubsub.sub('change.historyData', createList);
+
   // 履歴リスト
   listEl.addEventListener('click', (e) => {
     const target = e.target;
@@ -46,7 +48,6 @@
         cc.form.restoreValues(target.value);
       } else if (target.classList.contains('remove')) {
         cc.historyData.remove(target.value);
-        createList();
       }
     } else if (target.tagName.toLowerCase() === 'span') {
       cc.copyText(target.textContent);

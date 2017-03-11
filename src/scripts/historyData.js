@@ -9,6 +9,7 @@ cc.historyData = {
     // 先頭に追加
     this.data.unshift(v);
 
+    pubsub.pub('change.historyData', this.data);
     localStorage.setItem('ticketHistory', JSON.stringify(this.data));
   },
 
@@ -17,6 +18,7 @@ cc.historyData = {
     const index = this.data.indexOf(v);
     if (index !== -1) {
       this.data.splice(index, 1);
+      pubsub.pub('change.historyData', this.data);
       localStorage.setItem('ticketHistory', JSON.stringify(this.data));
     }
   },

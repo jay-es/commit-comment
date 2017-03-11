@@ -38,7 +38,6 @@
     if (currentValue === cc.historyData.data[0]) return;
 
     cc.historyData.add(currentValue);
-    cc.branchHistory.createList();
   });
 
   cc.comment = {
