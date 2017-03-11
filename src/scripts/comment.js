@@ -1,38 +1,37 @@
 {
-  const formData = cc.formData;
-
   const commentEl = document.getElementById('comment');
   const outputEl = document.getElementById('output');
   let outputText = '';
 
   // コミットコメントを作る
   const generateComment = () => {
-    if (!formData.tracker || !formData.ticket || !formData.emoji) return;
+    const { tracker, ticket, emoji, summary } = cc.form.data;
 
-    outputText = `${formData.tracker} #${formData.ticket} ${formData.emoji} ${formData.summary}`;
+    if (!tracker || !ticket || !emoji) return;
+
+    outputText = `${tracker} #${ticket} ${emoji} ${summary}`;
     outputEl.value = outputText;
   };
-
 
   // コピーボタン
   commentEl.addEventListener('click', (e) => {
     if (e.target.tagName.toLowerCase() !== 'button') return;
 
-    const textVal = outputText;
+    const { tracker, ticket, keyword } = cc.form.data;
 
-    if (!textVal || !formData.tracker || !formData.ticket) return;
+    if (!outputText || !tracker || !ticket) return;
 
     // クリップボードにコピー
     if (e.target.value === 'command') {
-      cc.copyText(`git commit -m "${textVal}"`);
+      cc.copyText(`git commit -m "${outputText}"`);
     } else {
-      cc.copyText(textVal);
+      cc.copyText(outputText);
     }
 
     // 履歴に追加する値
-    let currentValue = `${formData.tracker}-${formData.ticket}`;
-    if (formData.keyword) {
-      currentValue = `${currentValue}-${formData.keyword}`;
+    let currentValue = `${tracker}-${ticket}`;
+    if (keyword) {
+      currentValue = `${currentValue}-${keyword}`;
     }
 
     // 前回と同じなら終了
