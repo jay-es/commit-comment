@@ -1,7 +1,7 @@
 {
   const formData = cc.formData;
 
-  const commentEl = document.getElementsByClassName('comment')[0];
+  const commentEl = document.getElementById('comment');
   const outputEl = document.getElementById('output');
   let outputText = '';
 

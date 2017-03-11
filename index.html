@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="./style.css?v=2">
 </head>
 <body>
-  <form class="row">
+  <form class="row" id="form">
     <section class="cols">
       <h2>Ticket Tracker</h2>
       <label><input type="radio" name="tracker" value="FT" /><i>FT</i> <p>機能追加、仕様変更に伴う機能修正</p></label><br>
@@ -42,7 +42,7 @@
     </section>
   </form>
 
-  <section class="comment">
+  <section class="comment" id="comment">
     <h2>Commit Comment</h2>
     <input type="text" id="output" readonly />
     <button value="comment">コメントのみコピー</button>

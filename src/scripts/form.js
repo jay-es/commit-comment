@@ -1,5 +1,5 @@
 {
-  const formEl = document.getElementsByTagName('form')[0];
+  const formEl = document.getElementById('form');
 
   const data = {
     tracker: '',
