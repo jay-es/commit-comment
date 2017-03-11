@@ -39,8 +39,4 @@
 
     cc.historyData.add(currentValue);
   });
-
-  cc.comment = {
-    generateComment,
-  };
 }
