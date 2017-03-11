@@ -13,6 +13,10 @@ const jsFiles = [
   `${jsPath}init.js`,
 ];
 
+gulp.task('w', () => {
+  gulp.watch(jsFiles, ['js']);
+});
+
 gulp.task('js', () => {
   gulp.src(jsFiles)
   .pipe(concat('app.js'))
