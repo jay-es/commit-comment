@@ -23,7 +23,7 @@
       ticket,
       keyword,
     });
-    cc.comment.generateComment();
+    pubsub.pub('change.formData', data);
   };
 
   // form changeイベント
@@ -32,7 +32,7 @@
     if (!target.hasAttribute('name')) return;
 
     data[target.name] = target.value;
-    cc.comment.generateComment();
+    pubsub.pub('change.formData', data);
   };
 
   formEl.addEventListener('change', formEventHandler);

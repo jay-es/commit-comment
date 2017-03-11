@@ -16,5 +16,5 @@ cc.copyText = (textVal) => {
 // データがあったら前回の状態を復元
 if (cc.historyData.data.length) {
   cc.form.restoreValues(cc.historyData.data[0]);
-  cc.branchHistory.createList(cc.historyData.data);
+  pubsub.pub('change.historyData', cc.historyData.data);
 }

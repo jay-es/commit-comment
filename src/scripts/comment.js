@@ -4,14 +4,17 @@
   let outputText = '';
 
   // コミットコメントを作る
-  const generateComment = () => {
-    const { tracker, ticket, emoji, summary } = cc.form.data;
+  const generateComment = (formData) => {
+    const { tracker, ticket, emoji, summary } = formData;
 
     if (!tracker || !ticket || !emoji) return;
 
     outputText = `${tracker} #${ticket} ${emoji} ${summary}`;
     outputEl.value = outputText;
   };
+
+  pubsub.sub('change.formData', generateComment);
+
 
   // コピーボタン
   commentEl.addEventListener('click', (e) => {
