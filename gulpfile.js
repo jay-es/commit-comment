@@ -10,6 +10,7 @@ const jsFiles = [
   `${jsPath}form.js`,
   `${jsPath}comment.js`,
   `${jsPath}branchHistory.js`,
+  `${jsPath}radioLists.js`,
   `${jsPath}init.js`,
 ];
 

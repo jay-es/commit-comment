@@ -45,6 +45,7 @@ input[type="radio"] {
 i {
 	display: inline-block;
 	vertical-align: middle;
+	margin-right: .25em;
 	border: 1px solid #666;
 	width: 24px;
 	line-height: 24px;
