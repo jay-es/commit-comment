@@ -22,6 +22,6 @@ cc.historyData = {
   },
 };
 
-pubsub.sub('change.historyData', () => {
-  localStorage.setItem('ticketHistory', JSON.stringify(this.data));
+pubsub.sub('change.historyData', (data) => {
+  localStorage.setItem('ticketHistory', JSON.stringify(data));
 });
