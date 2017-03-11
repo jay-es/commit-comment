@@ -1,0 +1,31 @@
+{
+  "name": "commit-comment",
+  "version": "1.0.0",
+  "description": "https://jshindo-gladd.github.io/commit-comment/index.html",
+  "main": "app.js",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^2.13.1",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-plugin-html": "^1.7.0",
+    "eslint-plugin-import": "^1.16.0",
+    "eslint-plugin-jsx-a11y": "^1.5.5",
+    "eslint-plugin-react": "^5.2.2",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^3.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jshindo-gladd/commit-comment.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jshindo-gladd/commit-comment/issues"
+  },
+  "homepage": "https://github.com/jshindo-gladd/commit-comment#readme"
+}
