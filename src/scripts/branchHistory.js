@@ -53,8 +53,4 @@
       cc.copyText(target.textContent);
     }
   });
-
-  cc.branchHistory = {
-    createList,
-  };
 }
