@@ -10,7 +10,6 @@ cc.historyData = {
     this.data.unshift(v);
 
     pubsub.pub('change.historyData', this.data);
-    localStorage.setItem('ticketHistory', JSON.stringify(this.data));
   },
 
   // historyの値を消す
@@ -19,7 +18,10 @@ cc.historyData = {
     if (index !== -1) {
       this.data.splice(index, 1);
       pubsub.pub('change.historyData', this.data);
-      localStorage.setItem('ticketHistory', JSON.stringify(this.data));
     }
   },
 };
+
+pubsub.sub('change.historyData', () => {
+  localStorage.setItem('ticketHistory', JSON.stringify(this.data));
+});
