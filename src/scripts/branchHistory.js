@@ -44,7 +44,6 @@
       // ボタンの処理
       if (target.classList.contains('restore')) {
         cc.form.restoreValues(target.value);
-        cc.comment.generateComment();
       } else if (target.classList.contains('remove')) {
         cc.historyData.remove(target.value);
         createList();

@@ -23,6 +23,7 @@
       ticket,
       keyword,
     });
+    cc.comment.generateComment();
   };
 
   // form changeイベント
