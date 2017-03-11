@@ -14,8 +14,21 @@ const jsFiles = [
   `${jsPath}init.js`,
 ];
 
+const sassPath = 'src/sass/';
+const sassFile = `${sassPath}style.scss`;
+
+
+gulp.task('all', ['sass', 'js']);
+
 gulp.task('w', () => {
   gulp.watch(jsFiles, ['js']);
+  gulp.watch(`${sassPath}*.scss`, ['sass']);
+});
+
+gulp.task('sass', () => {
+  gulp.src(sassFile)
+  .pipe(concat('style.css'))
+  .pipe(gulp.dest('dist'));
 });
 
 gulp.task('js', () => {
