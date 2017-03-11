@@ -1,11 +1,3 @@
-cc.formData = {
-  tracker: '',
-  ticket: '',
-  keyword: '',
-  emoji: '',
-  summary: '',
-};
-
 // クリップボードにコピー
 cc.copyText = (textVal) => {
   const body = document.getElementsByTagName('body')[0];
