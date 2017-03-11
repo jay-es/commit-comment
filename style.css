@@ -18,15 +18,23 @@ h2 {
 	font-size: 14px;
 }
 h2 ~ h2 {
-	margin-top: 1em;
+	margin-top: 1.5em;
 }
 
 
 /* radio */
+.radio-list {
+	margin: 0 0 1.5em;
+	padding: 0;
+	list-style-type: none;
+	font-size: 12px;
+}
+.radio-list > li {
+	margin-bottom: .5em;
+}
+
 label {
 	display: inline-block;
-	margin-bottom: .75em;
-	font-size: 12px;
 	cursor: pointer;
 	user-select: none;
 }
@@ -37,6 +45,7 @@ input[type="radio"] {
 i {
 	display: inline-block;
 	vertical-align: middle;
+	margin-right: .25em;
 	border: 1px solid #666;
 	width: 24px;
 	line-height: 24px;
@@ -67,7 +76,6 @@ p {
 input[type="text"],
 input[type="number"] {
 	display: block;
-	margin: 0 0 1.5em;
 	padding: .25em;
 }
 
