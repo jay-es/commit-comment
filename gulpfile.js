@@ -16,18 +16,20 @@ const jsFiles = [
 
 const sassPath = 'src/sass/';
 const sassFile = `${sassPath}style.scss`;
-
+const sassConf = {
+  outputStyle: 'compact',
+};
 
 gulp.task('all', ['sass', 'js']);
 
-gulp.task('w', () => {
+gulp.task('w', ['all'], () => {
   gulp.watch(jsFiles, ['js']);
   gulp.watch(`${sassPath}*.scss`, ['sass']);
 });
 
 gulp.task('sass', () => {
   gulp.src(sassFile)
-  .pipe(sass())
+  .pipe(sass(sassConf))
   .pipe(concat('style.css'))
   .pipe(gulp.dest('dist'));
 });
