@@ -4,40 +4,40 @@
   <meta charset="UTF-8" />
   <meta http-equiv="content-language" content="ja">
   <title>Commit Comment</title>
-  <link rel="stylesheet" href="./style.css?v=2">
+  <link rel="stylesheet" href="./dist/style.css?v=2">
 </head>
 <body>
   <form class="row" id="form">
     <section class="cols">
-      <h2>Ticket Tracker</h2>
+      <h2 class="section-title">Ticket Tracker</h2>
       <ul class="radio-list" id="tracker"></ul>
 
-      <h2>Ticket Number</h2>
-      <input type="number" name="ticket" min="0" />
+      <h2 class="section-title">Ticket Number</h2>
+      <input type="number" class="input-block" name="ticket" min="0" />
 
-      <h2>Branch Keyword <small>(optional)</small></h2>
-      <input type="text" name="keyword" />
+      <h2 class="section-title">Branch Keyword <small>(optional)</small></h2>
+      <input type="text" class="input-block" name="keyword" />
     </section>
 
     <section class="cols">
-      <h2>Emoji</h2>
+      <h2 class="section-title">Emoji</h2>
       <ul class="radio-list" id="emoji"></ul>
 
-      <h2>Commit Summary</h2>
-      <input type="text" name="summary" />
+      <h2 class="section-title">Commit Summary</h2>
+      <input type="text" class="input-block commit-summery" name="summary" />
     </section>
   </form>
 
   <section class="comment" id="comment">
-    <h2>Commit Comment</h2>
-    <input type="text" id="output" readonly />
-    <button value="comment">コメントのみコピー</button>
-    <button value="command">Gitコマンド付きコピー</button>
+    <h2 class="section-title">Commit Comment</h2>
+    <input type="text" class="input-block comment-output" id="output" readonly />
+    <button class="btn" value="comment">コメントのみコピー</button>
+    <button class="btn" value="command">Gitコマンド付きコピー</button>
   </section>
 
   <section class="history">
-    <h2>Branch History</h2>
-    <ul id="history-list"></ul>
+    <h2 class="section-title">Branch History</h2>
+    <ul class="history-list" id="history-list"></ul>
   </section>
 
   <script src="./dist/app.js?v=4"></script>

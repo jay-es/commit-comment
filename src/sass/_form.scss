@@ -1,0 +1,59 @@
+// radio
+.radio-list {
+  margin: 0 0 1.5em;
+  padding: 0;
+  list-style-type: none;
+  font-size: 12px;
+
+  & > li {
+    margin-bottom: .5em;
+  }
+
+  &__label {
+    display: inline-block;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  &__radio {
+    margin: 0;
+    -webkit-appearance: none;
+  }
+  
+  &__icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: .25em;
+    border: 1px solid #666;
+    width: 24px;
+    line-height: 24px;
+    text-align: center;
+    font-style: normal;
+    color: #666;
+
+    &--tracker {
+      font-size: 13px;
+    }
+    &--emoji {
+      font-size: 16px;
+    }
+  }
+
+  &__radio:checked + &__icon {
+    border-color: $gladd-red;
+    background-color: lighten($gladd-red, 46);
+    color: $gladd-red;
+  }
+  
+  &__desc {
+    display: inline-block;
+    margin: 0 0 0 .25em;
+    line-height: 1.3;
+    vertical-align: middle;
+  }
+}
+
+
+.commit-summery {
+  width: 30em;
+}
