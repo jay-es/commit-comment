@@ -271,7 +271,7 @@ pubsub.sub('change.historyData', (data) => {
     {
       value: ':+1:',
       icon: '&#x1F44D;',
-      desc: '機能追加、仕様変更にともなう機能修正',
+      desc: '機能追加・修正（クラス、メソッド、関数などの追加・修正）',
     },
     {
       value: ':art:',
@@ -296,7 +296,7 @@ pubsub.sub('change.historyData', (data) => {
     {
       value: ':dress:',
       icon: '&#x1F457;',
-      desc: 'コードスタイルの修正<br>（空白削除、インデント変更など）',
+      desc: 'コードスタイルの修正（空白削除、インデント変更など）',
     },
     {
       value: ':dash:',
