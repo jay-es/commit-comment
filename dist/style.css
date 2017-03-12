@@ -4,48 +4,48 @@ body { color: #333; overflow-x: hidden; }
 
 .cols { display: inline-block; margin-right: 2em; vertical-align: top; }
 
-h2 { margin: 0 0 .25em; font-size: 14px; }
+.section-title { margin: 0 0 .25em; font-size: 14px; }
 
-h2 ~ h2 { margin-top: 1.5em; }
+.section-title ~ .section-title { margin-top: 1.5em; }
 
-button { cursor: pointer; }
+.btn { cursor: pointer; }
+
+.input-block { display: block; padding: .25em; }
 
 .radio-list { margin: 0 0 1.5em; padding: 0; list-style-type: none; font-size: 12px; }
 
 .radio-list > li { margin-bottom: .5em; }
 
-.radio-list label { display: inline-block; cursor: pointer; user-select: none; }
+.radio-list__label { display: inline-block; cursor: pointer; user-select: none; }
 
-.radio-list input[type="radio"] { margin: 0; -webkit-appearance: none; }
+.radio-list__radio { margin: 0; -webkit-appearance: none; }
 
-.radio-list i { display: inline-block; vertical-align: middle; margin-right: .25em; border: 1px solid #666; width: 24px; line-height: 24px; text-align: center; font-style: normal; color: #666; }
+.radio-list__icon { display: inline-block; vertical-align: middle; margin-right: .25em; border: 1px solid #666; width: 24px; line-height: 24px; text-align: center; font-style: normal; color: #666; }
 
-.radio-list input[type="radio"]:checked + i { border-color: #d8263c; background-color: #fcedef; color: #d8263c; }
+.radio-list__icon--tracker { font-size: 13px; }
 
-.radio-list input[name="tracker"] + i { font-size: 13px; }
+.radio-list__icon--emoji { font-size: 16px; }
 
-.radio-list input[name="emoji"] + i { font-size: 16px; }
+.radio-list__radio:checked + .radio-list__icon { border-color: #d8263c; background-color: #fcedef; color: #d8263c; }
 
-.radio-list p { display: inline-block; margin: 0 0 0 .25em; line-height: 1.3; vertical-align: middle; }
+.radio-list__desc { display: inline-block; margin: 0 0 0 .25em; line-height: 1.3; vertical-align: middle; }
 
-input[type="text"], input[type="number"] { display: block; padding: .25em; }
-
-input[name="summary"] { width: 30em; }
+.commit-summery { width: 30em; }
 
 .comment { margin-top: 1.5em; }
 
-.comment input[type="text"] { margin-bottom: .5em; padding: .75em; border: none; background-color: #000; width: 50em; font-size: 14px; font-family: monospace; color: #fff; }
+.comment-output { margin-bottom: .5em; padding: .75em; border: none; background-color: #000; width: 50em; font-size: 14px; font-family: monospace; color: #fff; }
 
 .history { margin-top: 3em; font-size: 13px; }
 
-.history ul { margin: 0; padding-left: 2em; }
+.history-list { margin: 0; padding-left: 2em; }
 
-.history ul > li { margin-bottom: .5em; }
+.history-list > li { margin-bottom: .5em; }
 
-.history button, .history a { margin-right: .5em; }
+.history-list .btn, .history-list__redmine-link { margin-right: .5em; }
 
-.history span { cursor: pointer; }
+.history-list__branch-name { cursor: pointer; }
 
-.history span:hover { color: #d8263c; }
+.history-list__branch-name:hover { color: #d8263c; }
 
-.history span:active { color: inherit; }
+.history-list__branch-name:active { color: inherit; }

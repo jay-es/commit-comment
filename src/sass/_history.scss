@@ -1,23 +1,22 @@
 .history {
 	margin-top: 3em;
 	font-size: 13px;
+}
 
-	ul {
-		margin: 0;
-		padding-left: 2em;
+.history-list {
+	margin: 0;
+	padding-left: 2em;
 
-		& > li {
-			margin-bottom: .5em;
-		}
+	& > li {
+		margin-bottom: .5em;
 	}
 
-
-	button,
-	a {
+	.btn,
+	&__redmine-link {
 		margin-right: .5em;
 	}
-
-	span {
+	
+	&__branch-name {
 		cursor: pointer;
 		
 		&:hover {

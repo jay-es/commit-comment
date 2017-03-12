@@ -9,18 +9,18 @@
 		margin-bottom: .5em;
 	}
 
-	label {
+	&__label {
 		display: inline-block;
 		cursor: pointer;
 		user-select: none;
 	}
 
-	input[type="radio"] {
+	&__radio {
 		margin: 0;
 		-webkit-appearance: none;
 	}
-
-	i {
+	
+	&__icon {
 		display: inline-block;
 		vertical-align: middle;
 		margin-right: .25em;
@@ -30,21 +30,22 @@
 		text-align: center;
 		font-style: normal;
 		color: #666;
-		
+
+		&--tracker {
+			font-size: 13px;
+		}
+		&--emoji {
+			font-size: 16px;
+		}
 	}
-	input[type="radio"]:checked + i {
+
+	&__radio:checked + &__icon {
 		border-color: $gladd-red;
 		background-color: lighten($gladd-red, 46);
 		color: $gladd-red;
 	}
-	input[name="tracker"] + i {
-		font-size: 13px;
-	}
-	input[name="emoji"] + i {
-		font-size: 16px;
-	}
 	
-	p {
+	&__desc {
 		display: inline-block;
 		margin: 0 0 0 .25em;
 		line-height: 1.3;
@@ -53,12 +54,6 @@
 }
 
 
-input[type="text"],
-input[type="number"] {
-	display: block;
-	padding: .25em;
-}
-
-input[name="summary"] {
+.commit-summery {
 	width: 30em;
 }

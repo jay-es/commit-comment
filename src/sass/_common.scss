@@ -15,15 +15,20 @@ body {
 }
 
 // 見出し
-h2 {
+.section-title {
 	margin: 0 0 .25em;
 	font-size: 14px;
 
-	& ~ h2 {
+	& ~ & {
 		margin-top: 1.5em;
 	}
 }
 
-button {
+.btn {
 	cursor: pointer;
+}
+
+.input-block {
+	display: block;
+	padding: .25em;
 }

@@ -87,19 +87,23 @@
       const li = document.createElement('li');
 
       const label = document.createElement('label');
+      label.className = 'radio-list__label';
       li.appendChild(label);
 
       const input = document.createElement('input');
       input.type = 'radio';
+      input.className = 'radio-list__radio';
       input.name = name;
       input.value = v.value;
       label.appendChild(input);
 
       const i = document.createElement('i');
+      i.className = `radio-list__icon radio-list__icon--${name}`;
       i.innerHTML = v.icon || v.value;
       label.appendChild(i);
 
       const p = document.createElement('p');
+      p.className = 'radio-list__desc';
       p.innerHTML = v.desc;
       label.appendChild(p);
 
