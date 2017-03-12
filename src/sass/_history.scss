@@ -1,24 +1,30 @@
 .history {
 	margin-top: 3em;
 	font-size: 13px;
-}
-.history ul {
-	margin: 0;
-	padding-left: 2em;
-}
-.history li {
-	margin-bottom: .5em;
-}
-.history button,
-.history a {
-	margin-right: .5em;
-}
-.history span {
-	cursor: pointer;
-}
-.history span:hover {
-	color: #d8263c;
-}
-.history span:active {
-	color: inherit;
+
+	ul {
+		margin: 0;
+		padding-left: 2em;
+
+		& > li {
+			margin-bottom: .5em;
+		}
+	}
+
+
+	button,
+	a {
+		margin-right: .5em;
+	}
+
+	span {
+		cursor: pointer;
+		
+		&:hover {
+			color: $gladd-red;
+		}
+		&:active {
+			color: inherit;
+		}
+	}
 }
