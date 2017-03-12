@@ -20,7 +20,7 @@ button { cursor: pointer; }
 
 .radio-list i { display: inline-block; vertical-align: middle; margin-right: .25em; border: 1px solid #666; width: 24px; line-height: 24px; text-align: center; font-style: normal; color: #666; }
 
-.radio-list input[type="radio"]:checked + i { border-color: #d8263c; background-color: #fbe8eb; color: #d8263c; }
+.radio-list input[type="radio"]:checked + i { border-color: #d8263c; background-color: #fcedef; color: #d8263c; }
 
 .radio-list input[name="tracker"] + i { font-size: 13px; }
 

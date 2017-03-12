@@ -34,7 +34,7 @@
 	}
 	input[type="radio"]:checked + i {
 		border-color: $gladd-red;
-		background-color: lighten($gladd-red, 45);
+		background-color: lighten($gladd-red, 46);
 		color: $gladd-red;
 	}
 	input[name="tracker"] + i {
