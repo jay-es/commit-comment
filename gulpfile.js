@@ -27,6 +27,7 @@ gulp.task('w', () => {
 
 gulp.task('sass', () => {
   gulp.src(sassFile)
+  .pipe(sass())
   .pipe(concat('style.css'))
   .pipe(gulp.dest('dist'));
 });

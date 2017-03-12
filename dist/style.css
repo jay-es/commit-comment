@@ -1,129 +1,138 @@
 body {
-	color: #333;
-	overflow-x: hidden;
+  color: #333;
+  overflow-x: hidden;
 }
 
 .row {
-	margin-right: -2em;
+  margin-right: -2em;
 }
+
 .cols {
-	display: inline-block;
-	margin-right: 2em;
-	vertical-align: top;
+  display: inline-block;
+  margin-right: 2em;
+  vertical-align: top;
 }
 
-/* 見出し */
 h2 {
-	margin: 0 0 .25em;
-	font-size: 14px;
+  margin: 0 0 .25em;
+  font-size: 14px;
 }
+
 h2 ~ h2 {
-	margin-top: 1.5em;
-}
-
-
-/* radio */
-.radio-list {
-	margin: 0 0 1.5em;
-	padding: 0;
-	list-style-type: none;
-	font-size: 12px;
-}
-.radio-list > li {
-	margin-bottom: .5em;
-}
-
-label {
-	display: inline-block;
-	cursor: pointer;
-	user-select: none;
-}
-input[type="radio"] {
-	margin: 0;
-	-webkit-appearance: none;
-}
-i {
-	display: inline-block;
-	vertical-align: middle;
-	margin-right: .25em;
-	border: 1px solid #666;
-	width: 24px;
-	line-height: 24px;
-	text-align: center;
-	font-style: normal;
-	color: #666;
-}
-	input[type="radio"]:checked + i {
-		border-color: #d8263c;
-		background-color: #fee;
-		color: #d8263c;
-	}
-	input[name="tracker"] + i {
-		font-size: 13px;
-	}
-	input[name="emoji"] + i {
-		font-size: 16px;
-	}
-
-p {
-	display: inline-block;
-	margin: 0 0 0 .25em;
-	line-height: 1.3;
-	vertical-align: middle;
-}
-
-
-input[type="text"],
-input[type="number"] {
-	display: block;
-	padding: .25em;
-}
-
-input[name="summary"] {
-	width: 30em;
+  margin-top: 1.5em;
 }
 
 button {
-	cursor: pointer;
+  cursor: pointer;
 }
 
+.radio-list {
+  margin: 0 0 1.5em;
+  padding: 0;
+  list-style-type: none;
+  font-size: 12px;
+}
+
+.radio-list > li {
+  margin-bottom: .5em;
+}
+
+label {
+  display: inline-block;
+  cursor: pointer;
+  user-select: none;
+}
+
+input[type="radio"] {
+  margin: 0;
+  -webkit-appearance: none;
+}
+
+i {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: .25em;
+  border: 1px solid #666;
+  width: 24px;
+  line-height: 24px;
+  text-align: center;
+  font-style: normal;
+  color: #666;
+}
+
+input[type="radio"]:checked + i {
+  border-color: #d8263c;
+  background-color: #fee;
+  color: #d8263c;
+}
+
+input[name="tracker"] + i {
+  font-size: 13px;
+}
+
+input[name="emoji"] + i {
+  font-size: 16px;
+}
+
+p {
+  display: inline-block;
+  margin: 0 0 0 .25em;
+  line-height: 1.3;
+  vertical-align: middle;
+}
+
+input[type="text"],
+input[type="number"] {
+  display: block;
+  padding: .25em;
+}
+
+input[name="summary"] {
+  width: 30em;
+}
 
 .comment {
-	margin-top: 1.5em;
-}
-.comment input[type="text"] {
-	margin-bottom: .5em;
-	padding: .75em;
-	border: none;
-	background-color: #000;
-	width: 50em;
-	font-size: 14px;
-	font-family: monospace;
-	color: #fff;
+  margin-top: 1.5em;
 }
 
+.comment input[type="text"] {
+  margin-bottom: .5em;
+  padding: .75em;
+  border: none;
+  background-color: #000;
+  width: 50em;
+  font-size: 14px;
+  font-family: monospace;
+  color: #fff;
+}
 
 .history {
-	margin-top: 3em;
-	font-size: 13px;
+  margin-top: 3em;
+  font-size: 13px;
 }
+
 .history ul {
-	margin: 0;
-	padding-left: 2em;
+  margin: 0;
+  padding-left: 2em;
 }
+
 .history li {
-	margin-bottom: .5em;
+  margin-bottom: .5em;
 }
+
 .history button,
 .history a {
-	margin-right: .5em;
+  margin-right: .5em;
 }
+
 .history span {
-	cursor: pointer;
+  cursor: pointer;
 }
+
 .history span:hover {
-	color: #d8263c;
+  color: #d8263c;
 }
+
 .history span:active {
-	color: inherit;
+  color: inherit;
 }
