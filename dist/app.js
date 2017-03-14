@@ -342,6 +342,18 @@ pubsub.sub('change.historyData', (data) => {
       i.innerHTML = v.icon ? `&#x${v.icon};` : v.value;
       label.appendChild(i);
 
+      // Emoji画像をGitHubから読み込む
+      if (v.icon) {
+        const img = new Image();
+        const fileName = v.icon.toLowerCase();
+        img.src = `https://assets-cdn.github.com/images/icons/emoji/unicode/${fileName}.png`;
+
+        img.onload = () => {
+          i.style.backgroundImage = `url(${img.src})`;
+          i.innerHTML = '&nbsp;';
+        };
+      }
+
       const p = document.createElement('p');
       p.className = 'radio-list__desc';
       p.innerHTML = v.desc;

@@ -24,7 +24,7 @@ body { color: #333; overflow-x: hidden; }
 
 .radio-list__icon--tracker { font-size: 13px; }
 
-.radio-list__icon--emoji { font-size: 16px; }
+.radio-list__icon--emoji { font-size: 16px; background: no-repeat center center; background-size: 1em; }
 
 .radio-list__radio:checked + .radio-list__icon { border-color: #d8263c; background-color: #fcedef; color: #d8263c; }
 
