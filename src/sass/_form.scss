@@ -16,8 +16,7 @@
   }
 
   &__radio {
-    margin: 0;
-    -webkit-appearance: none;
+    display: none;
   }
   
   &__icon {
@@ -36,6 +35,8 @@
     }
     &--emoji {
       font-size: 16px;
+      background: no-repeat center center;
+      background-size: 1em;
     }
   }
 
