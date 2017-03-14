@@ -18,7 +18,7 @@ body { color: #333; overflow-x: hidden; }
 
 .radio-list__label { display: inline-block; cursor: pointer; user-select: none; }
 
-.radio-list__radio { margin: 0; -webkit-appearance: none; }
+.radio-list__radio { display: none; }
 
 .radio-list__icon { display: inline-block; vertical-align: middle; margin-right: .25em; border: 1px solid #666; width: 24px; line-height: 24px; text-align: center; font-style: normal; color: #666; }
 
