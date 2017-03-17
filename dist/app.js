@@ -202,7 +202,7 @@ pubsub.sub('change.historyData', (data) => {
 
       const link = document.createElement('a');
       const [, ticketNo] = v.split('-');
-      link.className = 'history-list__redmine-link';
+      link.className = 'text-link history-list__redmine-link';
       link.textContent = 'Redmine';
       link.href = `https://kbn.glamour-sales.com/issues/${ticketNo}`;
       link.target = '_blank';

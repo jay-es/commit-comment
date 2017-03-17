@@ -32,3 +32,16 @@ body {
   display: block;
   padding: .25em;
 }
+
+.text-link {
+  color: initial;
+
+  &:hover {
+  color: $gladd-red;
+  }
+}
+
+.read-me {
+  margin-top: 3em;
+  font-size: 14px;
+}
