@@ -18,7 +18,6 @@ const babelConf = {
   presets: ['babili'],
 };
 
-
 const sassPath = 'src/sass/';
 const sassFile = `${sassPath}style.scss`;
 const sassConf = {
@@ -36,18 +35,18 @@ gulp.task('sass', () => {
   gulp.src(sassFile)
   .pipe(sass(sassConf))
   .pipe(concat('style.css'))
-  .pipe(gulp.dest('dist'));
+  .pipe(gulp.dest('docs'));
 });
 
 gulp.task('js', () => {
   gulp.src(jsFiles)
   .pipe(concat('app.js'))
-  .pipe(gulp.dest('dist'));
+  .pipe(gulp.dest('docs'));
 });
 
 gulp.task('js-min', () => {
   gulp.src(jsFiles)
   .pipe(concat('app.js'))
   .pipe(babel(babelConf))
-  .pipe(gulp.dest('dist'));
+  .pipe(gulp.dest('docs'));
 });
