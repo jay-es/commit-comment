@@ -1,5 +1,6 @@
 const gulp = require('gulp');
 const concat = require('gulp-concat');
+const babel = require('gulp-babel');
 const sass = require('gulp-sass');
 
 const jsPath = 'src/scripts/';
@@ -13,6 +14,10 @@ const jsFiles = [
   `${jsPath}radioLists.js`,
   `${jsPath}init.js`,
 ];
+const babelConf = {
+  presets: ['babili'],
+};
+
 
 const sassPath = 'src/sass/';
 const sassFile = `${sassPath}style.scss`;
@@ -20,7 +25,7 @@ const sassConf = {
   outputStyle: 'compact',
 };
 
-gulp.task('all', ['sass', 'js']);
+gulp.task('all', ['sass', 'js-min']);
 
 gulp.task('w', ['all'], () => {
   gulp.watch(jsFiles, ['js']);
@@ -37,5 +42,12 @@ gulp.task('sass', () => {
 gulp.task('js', () => {
   gulp.src(jsFiles)
   .pipe(concat('app.js'))
+  .pipe(gulp.dest('dist'));
+});
+
+gulp.task('js-min', () => {
+  gulp.src(jsFiles)
+  .pipe(concat('app.js'))
+  .pipe(babel(babelConf))
   .pipe(gulp.dest('dist'));
 });
