@@ -1,5 +1,5 @@
 cc.historyData = {
-  data: JSON.parse(localStorage.getItem('ticketHistory')) || [],
+  data: JSON.parse(localStorage.getItem('branchHistory')) || [],
 
   // historyの先頭に追加する
   add(branchData) {
@@ -14,14 +14,17 @@ cc.historyData = {
 
   // historyの値を消す
   remove(branchData) {
-    const index = this.data.indexOf(branchData);
-    if (index !== -1) {
-      this.data.splice(index, 1);
+    this.data.some((v, i) => {
+      // 内容が同じではなかったら次へ
+      if (!cc.isSameObject(v, branchData)) return false;
+
+      this.data.splice(i, 1);
       pubsub.pub('change.historyData', this.data);
-    }
+      return true;
+    });
   },
 };
 
 pubsub.sub('change.historyData', (data) => {
-  localStorage.setItem('ticketHistory', JSON.stringify(data));
+  localStorage.setItem('branchHistory', JSON.stringify(data));
 });
