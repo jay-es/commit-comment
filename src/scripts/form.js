@@ -4,7 +4,7 @@
   const currentData = {
     tracker: '',
     ticket: '',
-    version: '',
+    prefix: '',
     issue: '',
     keyword: '',
     emoji: '',
@@ -12,17 +12,17 @@
   };
 
   // historyの値を復元する
-  const restoreValues = ({ tracker, ticket, version, issue, keyword }) => {
+  const restoreValues = ({ tracker, ticket, prefix, issue, keyword }) => {
     document.querySelector(`input[name="tracker"][value="${tracker}"]`).checked = true;
     document.querySelector('input[name="ticket"]').value = ticket;
-    document.querySelector('input[name="version"]').value = version || '';
+    document.querySelector('input[name="prefix"]').value = prefix || '';
     document.querySelector('input[name="issue"]').value = issue || '';
     document.querySelector('input[name="keyword"]').value = keyword || '';
 
     Object.assign(currentData, {
       tracker,
       ticket,
-      version,
+      prefix,
       issue,
       keyword,
     });

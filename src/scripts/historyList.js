@@ -6,7 +6,7 @@
     listEl.innerHTML = '';
     const fragment = document.createDocumentFragment();
 
-    historyData.forEach(({ tracker, ticket, version, issue, keyword }, i) => {
+    historyData.forEach(({ tracker, ticket, prefix, issue, keyword }, i) => {
       const li = document.createElement('li');
 
       const restore = document.createElement('button');
@@ -31,7 +31,7 @@
       const text = document.createElement('span');
       text.className = 'history-list__branch-name';
       text.textContent = `${tracker}-${ticket}`;
-      if (version) text.textContent += `-${version}`;
+      if (prefix) text.textContent += `-${prefix}`;
       if (issue) text.textContent += `-${issue}`;
       if (keyword) text.textContent += `-${keyword}`;
       li.appendChild(text);

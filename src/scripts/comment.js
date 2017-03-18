@@ -21,7 +21,7 @@
   commentEl.addEventListener('click', (e) => {
     if (e.target.tagName.toLowerCase() !== 'button') return;
 
-    const { tracker, ticket, version, issue, keyword } = cc.form.currentData;
+    const { tracker, ticket, prefix, issue, keyword } = cc.form.currentData;
 
     if (!outputText || !tracker || !ticket) return;
 
@@ -36,7 +36,7 @@
     const currentBranch = {
       tracker,
       ticket,
-      version,
+      prefix,
       issue,
       keyword,
     };

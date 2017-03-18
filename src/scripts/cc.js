@@ -40,7 +40,7 @@ if (!localStorage.getItem('branchHistory')) {
       tracker,
       ticket,
       keyword,
-      version: '',
+      prefix: '',
       issue: '',
     });
   });
