@@ -2,19 +2,19 @@ cc.historyData = {
   data: JSON.parse(localStorage.getItem('ticketHistory')) || [],
 
   // historyの先頭に追加する
-  add(v) {
+  add(branchData) {
     // すでに同じものが入っていたら消す
-    this.remove(v);
+    this.remove(branchData);
 
     // 先頭に追加
-    this.data.unshift(v);
+    this.data.unshift(branchData);
 
     pubsub.pub('change.historyData', this.data);
   },
 
   // historyの値を消す
-  remove(v) {
-    const index = this.data.indexOf(v);
+  remove(branchData) {
+    const index = this.data.indexOf(branchData);
     if (index !== -1) {
       this.data.splice(index, 1);
       pubsub.pub('change.historyData', this.data);
