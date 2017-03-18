@@ -54,6 +54,13 @@
   }
 }
 
+.input-version, 
+.input-issue {
+  display: inline-block;
+  padding: .25em;
+  width: 8em;
+}
+
 
 .commit-summery {
   width: 30em;
