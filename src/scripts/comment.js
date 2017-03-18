@@ -20,7 +20,7 @@
   commentEl.addEventListener('click', (e) => {
     if (e.target.tagName.toLowerCase() !== 'button') return;
 
-    const { tracker, ticket, keyword } = cc.form.data;
+    const { tracker, ticket, keyword } = cc.form.currentData;
 
     if (!outputText || !tracker || !ticket) return;
 

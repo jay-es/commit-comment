@@ -1,7 +1,7 @@
 {
   const formEl = document.getElementById('form');
 
-  const data = {
+  const currentData = {
     tracker: '',
     ticket: '',
     keyword: '',
@@ -18,12 +18,12 @@
     document.querySelector('input[name="ticket"]').value = ticket;
     document.querySelector('input[name="keyword"]').value = keyword || '';
 
-    Object.assign(data, {
+    Object.assign(currentData, {
       tracker,
       ticket,
       keyword,
     });
-    pubsub.pub('change.formData', data);
+    pubsub.pub('change.formData', currentData);
   };
 
   // form changeイベント
@@ -31,15 +31,15 @@
     const target = e.target;
     if (!target.hasAttribute('name')) return;
 
-    data[target.name] = target.value;
-    pubsub.pub('change.formData', data);
+    currentData[target.name] = target.value;
+    pubsub.pub('change.formData', currentData);
   };
 
   formEl.addEventListener('change', formEventHandler);
   formEl.addEventListener('input', formEventHandler);
 
   cc.form = {
-    data,
+    currentData,
     restoreValues,
   };
 }
