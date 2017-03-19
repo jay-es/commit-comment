@@ -14,7 +14,11 @@
       <ul class="radio-list" id="tracker"></ul>
 
       <h2 class="section-title">Ticket Number</h2>
-      <input type="number" class="input-block" name="ticket" min="0" />
+      <input type="number" class="input-block" name="ticket" min="1" />
+
+      <h2 class="section-title">Branch Prefix / Issue Number <small>(both optional)</small></h2>
+      <input type="text" class="input-prefix" name="prefix" />
+      <input type="number" class="input-issue" name="issue" min="1" />
 
       <h2 class="section-title">Branch Keyword <small>(optional)</small></h2>
       <input type="text" class="input-block" name="keyword" />
@@ -31,7 +35,7 @@
 
   <section class="comment" id="comment">
     <h2 class="section-title">Commit Comment</h2>
-    <input type="text" class="input-block comment-output" id="output" readonly />
+    <input type="text" class="input-block comment-output" id="output" tabindex="-1" readonly />
     <button class="btn" value="comment">コメントのみコピー</button>
     <button class="btn" value="command">Gitコマンド付きコピー</button>
   </section>

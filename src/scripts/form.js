@@ -1,29 +1,32 @@
 {
   const formEl = document.getElementById('form');
 
-  const data = {
+  const currentData = {
     tracker: '',
     ticket: '',
+    prefix: '',
+    issue: '',
     keyword: '',
     emoji: '',
     summary: '',
   };
 
   // historyの値を復元する
-  const restoreValues = (v) => {
-    const [tracker, ticket, ...keywords] = v.split('-');
-    const keyword = keywords.join('-');
-
+  const restoreValues = ({ tracker, ticket, prefix, issue, keyword }) => {
     document.querySelector(`input[name="tracker"][value="${tracker}"]`).checked = true;
     document.querySelector('input[name="ticket"]').value = ticket;
+    document.querySelector('input[name="prefix"]').value = prefix || '';
+    document.querySelector('input[name="issue"]').value = issue || '';
     document.querySelector('input[name="keyword"]').value = keyword || '';
 
-    Object.assign(data, {
+    Object.assign(currentData, {
       tracker,
       ticket,
+      prefix,
+      issue,
       keyword,
     });
-    pubsub.pub('change.formData', data);
+    pubsub.pub('change.formData', currentData);
   };
 
   // form changeイベント
@@ -31,15 +34,15 @@
     const target = e.target;
     if (!target.hasAttribute('name')) return;
 
-    data[target.name] = target.value;
-    pubsub.pub('change.formData', data);
+    currentData[target.name] = target.value;
+    pubsub.pub('change.formData', currentData);
   };
 
   formEl.addEventListener('change', formEventHandler);
   formEl.addEventListener('input', formEventHandler);
 
   cc.form = {
-    data,
+    currentData,
     restoreValues,
   };
 }

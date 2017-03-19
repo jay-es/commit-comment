@@ -4,12 +4,13 @@
   let outputText = '';
 
   // コミットコメントを作る
-  const generateComment = (formData) => {
-    const { tracker, ticket, emoji, summary } = formData;
-
+  const generateComment = ({ tracker, ticket, issue, emoji, summary }) => {
     if (!tracker || !ticket || !emoji) return;
 
-    outputText = `${tracker} #${ticket} ${emoji} ${summary}`;
+    outputText = `${tracker} #${ticket} ${emoji}`;
+    if (issue) outputText += ` #${issue}`;
+    outputText += ` ${summary}`;
+
     outputEl.value = outputText;
   };
 
@@ -20,7 +21,7 @@
   commentEl.addEventListener('click', (e) => {
     if (e.target.tagName.toLowerCase() !== 'button') return;
 
-    const { tracker, ticket, keyword } = cc.form.data;
+    const { tracker, ticket, prefix, issue, keyword } = cc.form.currentData;
 
     if (!outputText || !tracker || !ticket) return;
 
@@ -32,14 +33,17 @@
     }
 
     // 履歴に追加する値
-    let currentValue = `${tracker}-${ticket}`;
-    if (keyword) {
-      currentValue = `${currentValue}-${keyword}`;
-    }
+    const currentBranch = {
+      tracker,
+      ticket,
+      prefix,
+      issue,
+      keyword,
+    };
 
     // 前回と同じなら終了
-    if (currentValue === cc.historyData.data[0]) return;
+    if (cc.isSameObject(currentBranch, cc.historyData.data[0])) return;
 
-    cc.historyData.add(currentValue);
+    cc.historyData.add(currentBranch);
   });
 }
