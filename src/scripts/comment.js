@@ -8,7 +8,7 @@
     if (!tracker || !ticket || !emoji) return;
 
     outputText = `${tracker} #${ticket} ${emoji}`;
-    if (issue) outputText += ` ${issue}`;
+    if (issue) outputText += ` #${issue}`;
     outputText += ` ${summary}`;
 
     outputEl.value = outputText;
