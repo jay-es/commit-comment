@@ -79,6 +79,21 @@
     },
   ];
 
+  // iOS6のEmojiが使える環境かどうか
+  // https://gist.github.com/mwunsch/4710561
+  const doesSupportEmoji = (() => {
+    const canvas = document.createElement('canvas');
+    if (!canvas.getContext) return false;
+    const context = canvas.getContext('2d');
+    if (typeof context.fillText !== 'function') return false;
+    const target = String.fromCodePoint(0x1F604);
+
+    context.textBaseline = 'top';
+    context.font = '32px Arial';
+    context.fillText(target, 0, 0);
+    return context.getImageData(16, 16, 1, 1).data[0] !== 0;
+  })();
+
   const generateList = (name, listData) => {
     const listEl = document.getElementById(name);
     const fragment = document.createDocumentFragment();
@@ -102,8 +117,8 @@
       i.innerHTML = v.icon ? `&#x${v.icon};` : v.value;
       label.appendChild(i);
 
-      // Emoji画像をGitHubから読み込む
-      if (v.icon) {
+      // Emoji非対応環境だったら、GitHubから画像を取得
+      if (v.icon && !doesSupportEmoji) {
         const img = new Image();
         const fileName = v.icon.toLowerCase();
         img.src = `https://assets-cdn.github.com/images/icons/emoji/unicode/${fileName}.png`;
