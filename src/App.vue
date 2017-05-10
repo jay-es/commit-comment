@@ -52,7 +52,7 @@ export default {
       };
 
       // 前回と同じなら終了
-      if (isSameObject(newHistory, this.historyData[0])) return;
+      if (this.historyData[0] && isSameObject(newHistory, this.historyData[0])) return;
 
       // すでに同じものが入っていたら消す
       this.historyData.forEach((v, i) => {
