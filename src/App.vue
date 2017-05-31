@@ -1,8 +1,11 @@
 <template>
   <div>
-    <my-form :form-data="formData"></my-form>
+    <my-form :form-data="formData" :fav-phrases="favPhrases"></my-form>
     <comment :form-data="formData" @addHistory="addHistory"></comment>
-    <history-list :form-data="formData" :history-data="historyData"></history-list>
+    <div class="row">
+      <history-list class="cols" :form-data="formData" :history-data="historyData"></history-list>
+      <fav-list class="cols" :form-data="formData" :fav-phrases="favPhrases"></fav-list>
+    </div>
     <read-me></read-me>
   </div>
 </template>
@@ -11,6 +14,7 @@
 import myForm from './components/myForm.vue';
 import comment from './components/comment.vue';
 import historyList from './components/historyList.vue';
+import favList from './components/favList.vue';
 import readMe from './components/readMe.vue';
 import { isSameObject } from './scripts/helper';
 
@@ -19,6 +23,7 @@ export default {
     myForm,
     comment,
     historyList,
+    favList,
     readMe,
   },
   data() {
@@ -32,6 +37,7 @@ export default {
         emoji: '',
         summary: '',
       },
+      favPhrases: JSON.parse(localStorage.getItem('favPhrases')) || [],
       historyData: JSON.parse(localStorage.getItem('branchHistory')) || [],
     };
   },
@@ -66,6 +72,9 @@ export default {
     },
   },
   watch: {
+    favPhrases() {
+      localStorage.setItem('favPhrases', JSON.stringify(this.favPhrases));
+    },
     historyData() {
       localStorage.setItem('branchHistory', JSON.stringify(this.historyData));
     },

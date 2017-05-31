@@ -30,3 +30,9 @@ https://jshindo-gladd.github.io/commit-comment/
 - removeボタンを押すと、その履歴が削除される
 - Redmineリンクを押すとチケットのページが新しいタブで開く
 - ブランチ名をクリックするとクリップボードにコピーされる
+
+## お気に入り (Favorite Phrases)
+- Commit Summaryの下にあるfavボタンを押すと、入力されている文字列が登録される
+- restoreボタンを押すと、Commit Summaryに復元される
+- removeボタンを押すと、その履歴が削除される
+- 文字をクリックするとクリップボードにコピーされる

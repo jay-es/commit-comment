@@ -42,6 +42,7 @@
 
       <h2 class="section-title">Commit Summary</h2>
       <input type="text" class="input-block commit-summery" name="summary" v-model="formData.summary" />
+      <button type="button" class="btn" :disabled="!formData.summary" @click="addFav">fav</button>
     </section>
   </form>
 </template>
@@ -52,12 +53,23 @@ import emojis from '../scripts/emojis';
 import { doesSupportEmoji } from '../scripts/helper';
 
 export default {
-  props: ['formData'],
+  props: ['favPhrases', 'formData'],
   data() {
     return {
       trackers,
       emojis,
     };
+  },
+  methods: {
+    addFav() {
+      const summary = this.formData.summary;
+      const index = this.favPhrases.indexOf(summary);
+      if (index !== -1) {
+        this.favPhrases.splice(index, 1);
+      }
+
+      this.favPhrases.unshift(summary);
+    },
   },
   created() {
     // Emoji非対応環境だったら、GitHubから画像を取得
