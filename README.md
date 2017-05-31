@@ -15,8 +15,8 @@ https://jshindo-gladd.github.io/commit-comment/
 
 ## 出力形式
 - コミットコメント
-`{Ticket Tracker} #{Ticket Number} {Emoji} #{Issue Number} {Commit Summary}`
-例）`FT #3000 :pencil: #20 タイトル変更`
+`{Ticket Tracker} #{Ticket Number} {Emoji} {Issue Number} {Commit Summary}`
+例）`FT #3000 :pencil: 20 タイトル変更`
 
 - ブランチ名
 `{Ticket Tracker}-{Ticket Number}-{Branch Prefix}-{Issue Number}-{Branch Keyword}`

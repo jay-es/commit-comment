@@ -18,7 +18,7 @@ export default {
       if (!tracker || !ticket || !emoji) return '';
 
       let outputText = `${tracker} #${ticket} ${emoji}`;
-      if (issue) outputText += ` #${issue}`;
+      if (issue) outputText += ` ${issue}`;
       outputText += ` ${summary}`;
 
       return outputText;
