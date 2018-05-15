@@ -30,32 +30,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-$gladd-red: #d8263c;
-
-.history {
-  margin-top: 3em;
-  font-size: 13px;
-}
-
-.history-list {
-  margin: 0;
-  padding-left: 2em;
-
-  & > li {
-  margin-bottom: .5em;
-  }
-
-  &__branch-name {
-    cursor: pointer;
-
-    &:hover {
-    color: $gladd-red;
-    }
-    &:active {
-    color: inherit;
-    }
-  }
-}
-</style>

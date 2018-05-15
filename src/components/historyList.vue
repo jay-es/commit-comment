@@ -53,16 +53,16 @@ $gladd-red: #d8263c;
   & > li {
   margin-bottom: .5em;
   }
+}
 
-  &__branch-name {
-    cursor: pointer;
-
-    &:hover {
+.history-list__branch-name {
+  cursor: pointer;
+  
+  &:hover {
     color: $gladd-red;
-    }
-    &:active {
+  }
+  &:active {
     color: inherit;
-    }
   }
 }
 </style>
