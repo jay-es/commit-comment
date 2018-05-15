@@ -146,6 +146,10 @@ $gladd-red: #d8263c;
   line-height: 1.3;
   vertical-align: middle;
   white-space: pre;
+
+  .radio-list__radio:checked ~ & {
+    color: $gladd-red;
+  }
 }
 
 .input-prefix,
