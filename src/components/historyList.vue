@@ -32,17 +32,12 @@ export default {
   computed: mapState([
     'branchHistory',
   ]),
-  watch: {
-    branchHistory(newVal) {
-      localStorage.setItem('branchHistory', JSON.stringify(newVal));
-    },
-  },
   methods: {
     restore(index) {
       Object.assign(this.formData, this.branchHistory[index]);
     },
     remove(index) {
-      this.$store.commit('branchHistory/remove', index);
+      this.$store.dispatch('branchHistory/remove', index);
     },
     copy($event) {
       copyText($event.target.textContent);

@@ -48,7 +48,7 @@ export default {
         copyText(this.commentText);
       }
 
-      this.$store.commit('branchHistory/add', this.formData);
+      this.$store.dispatch('branchHistory/add', this.formData);
     },
   },
 };

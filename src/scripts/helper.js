@@ -42,9 +42,15 @@ const isSameObject = (a, b) => {
   return aKeys.every(v => a[v] === b[v]);
 };
 
+// localStorageに保存
+const setStorage = (keyName, keyValue) => {
+  localStorage.setItem(keyName, JSON.stringify(keyValue));
+};
+
 export {
   copyText,
   doesSupportEmoji,
   isSameObject,
+  setStorage,
 };
 

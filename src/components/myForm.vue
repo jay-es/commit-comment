@@ -117,7 +117,7 @@ export default {
   },
   methods: {
     addFav() {
-      this.$store.commit('favPhrases/add', this.formData.summary);
+      this.$store.dispatch('favPhrases/add', this.formData.summary);
     },
   },
 };

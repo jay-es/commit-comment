@@ -1,10 +1,9 @@
+import { setStorage } from '../scripts/helper';
+
 export default {
   namespaced: true,
   state: JSON.parse(localStorage.getItem('favPhrases')) || [],
   mutations: {
-    remove(state, index) {
-      state.splice(index, 1);
-    },
     add(state, phrase) {
       const index = state.indexOf(phrase);
 
@@ -15,6 +14,19 @@ export default {
 
       // 先頭に追加
       state.unshift(phrase);
+    },
+    remove(state, index) {
+      state.splice(index, 1);
+    },
+  },
+  actions: {
+    add({ commit, state }, phrase) {
+      commit('add', phrase);
+      setStorage('favPhrases', state);
+    },
+    remove({ commit, state }, index) {
+      commit('remove', index);
+      setStorage('favPhrases', state);
     },
   },
 };

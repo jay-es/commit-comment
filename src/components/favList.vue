@@ -25,18 +25,13 @@ export default {
   computed: mapState([
     'favPhrases',
   ]),
-  watch: {
-    favPhrases(newVal) {
-      localStorage.setItem('favPhrases', JSON.stringify(newVal));
-    },
-  },
   methods: {
     restore(index) {
       this.formData.summary = this.favPhrases[index];
       document.getElementsByClassName('commit-summery')[0].focus();
     },
     remove(index) {
-      this.$store.commit('favPhrases/remove', index);
+      this.$store.dispatch('favPhrases/remove', index);
     },
     copy($event) {
       copyText($event.target.textContent);
