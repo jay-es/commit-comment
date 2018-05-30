@@ -1,12 +1,12 @@
 <template>
   <div>
-    <my-form :form-data="formData" :fav-phrases="favPhrases"></my-form>
-    <comment :form-data="formData" @addHistory="addHistory"></comment>
+    <my-form v-bind="$data" />
+    <comment v-bind="$data" />
     <div class="row">
-      <history-list class="cols" :form-data="formData" :history-data="historyData"></history-list>
-      <fav-list class="cols" :form-data="formData" :fav-phrases="favPhrases"></fav-list>
+      <history-list v-bind="$data" class="cols" />
+      <fav-list v-bind="$data" class="cols" />
     </div>
-    <read-me></read-me>
+    <read-me/>
   </div>
 </template>
 
@@ -41,6 +41,14 @@ export default {
       historyData: JSON.parse(localStorage.getItem('branchHistory')) || [],
     };
   },
+  watch: {
+    favPhrases() {
+      localStorage.setItem('favPhrases', JSON.stringify(this.favPhrases));
+    },
+    historyData() {
+      localStorage.setItem('branchHistory', JSON.stringify(this.historyData));
+    },
+  },
   created() {
     // 前回を復元
     if (this.historyData.length) {
@@ -48,7 +56,9 @@ export default {
     }
   },
   methods: {
-    addHistory({ tracker, ticket, prefix, issue, keyword }) {
+    addHistory({
+      tracker, ticket, prefix, issue, keyword,
+    }) {
       const newHistory = {
         tracker,
         ticket,
@@ -69,14 +79,6 @@ export default {
 
       // 先頭に追加
       this.historyData.unshift(newHistory);
-    },
-  },
-  watch: {
-    favPhrases() {
-      localStorage.setItem('favPhrases', JSON.stringify(this.favPhrases));
-    },
-    historyData() {
-      localStorage.setItem('branchHistory', JSON.stringify(this.historyData));
     },
   },
 };

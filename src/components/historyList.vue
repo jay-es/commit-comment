@@ -2,10 +2,17 @@
   <section class="history">
     <h2 class="section-title">Branch History</h2>
     <ul class="history-list">
-      <li v-for="(item, index) of historyData">
+      <li v-for="(item, index) of branchHistory" :key="index + item">
         <button class="btn" @click="restore(index)">restore</button>
         <button class="btn" @click="remove(index)">remove</button>
-        <a class="text-link history-list__redmine-link" :href="`https://kbn.glamour-sales.com/issues/${item.ticket}`" target="_blank">Redmine</a>
+        <button class="btn" @click="remove(index)">remove</button>
+        <a
+          :href="`https://kbn.glamour-sales.com/issues/${item.ticket}`"
+          class="text-link history-list__redmine-link"
+          target="_blank"
+        >
+          Redmine
+        </a>
         <span class="history-list__branch-name" @click="copy">{{ branchName(item) }}</span>
       </li>
     </ul>
@@ -16,7 +23,16 @@
 import { copyText } from '../scripts/helper';
 
 export default {
-  props: ['formData', 'historyData'],
+  props: {
+    formData: {
+      type: Object,
+      required: true,
+    },
+    historyData: {
+      type: Array,
+      required: true,
+    },
+  },
   methods: {
     restore(index) {
       Object.assign(this.formData, this.historyData[index]);
@@ -27,7 +43,9 @@ export default {
     copy($event) {
       copyText($event.target.textContent);
     },
-    branchName({ tracker, ticket, prefix, issue, keyword }) {
+    branchName({
+      tracker, ticket, prefix, issue, keyword,
+    }) {
       let text = `${tracker}-${ticket}`;
       if (prefix) text += `-${prefix}`;
       if (issue) text += `-${issue}`;
@@ -57,7 +75,7 @@ $gladd-red: #d8263c;
 
 .history-list__branch-name {
   cursor: pointer;
-  
+
   &:hover {
     color: $gladd-red;
   }

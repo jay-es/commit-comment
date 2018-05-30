@@ -1,7 +1,13 @@
 <template>
   <section class="comment">
     <h2 class="section-title">Commit Comment</h2>
-    <input type="text" class="input-block comment-output" tabindex="-1" readonly :value="commentText"/>
+    <input
+      :value="commentText"
+      type="text"
+      class="input-block comment-output"
+      tabindex="-1"
+      readonly
+    >
     <button class="btn" @click="copy()">コメントのみコピー</button>
     <button class="btn" @click="copy(true)">Gitコマンド付きコピー</button>
   </section>
@@ -11,10 +17,18 @@
 import { copyText } from '../scripts/helper';
 
 export default {
-  props: ['formData'],
+  props: {
+    formData: {
+      type: Object,
+      required: true,
+    },
+  },
   computed: {
     commentText() {
-      const { tracker, ticket, issue, emoji, summary } = this.formData;
+      const {
+        tracker, ticket, issue, emoji, summary,
+      } = this.formData;
+
       if (!tracker || !ticket || !emoji) return '';
 
       let outputText = `${tracker} #${ticket} ${emoji}`;
