@@ -3,9 +3,15 @@
     <section class="cols">
       <h2 class="section-title">Ticket Tracker</h2>
       <ul class="radio-list">
-        <li v-for="item of trackers">
+        <li v-for="item of trackers" :key="item.value">
           <label class="radio-list__label">
-            <input type="radio" class="radio-list__radio" name="tracker" :value="item.value" v-model="formData.tracker" />
+            <input
+              :value="item.value"
+              v-model="formData.tracker"
+              type="radio"
+              name="tracker"
+              class="radio-list__radio"
+            >
             <i class="radio-list__icon radio-list__icon--tracker">{{ item.value }}</i>
             <p class="radio-list__desc">{{ item.desc }}</p>
           </label>
@@ -13,27 +19,60 @@
       </ul>
 
       <h2 class="section-title">Ticket Number</h2>
-      <input type="number" class="input-block" name="ticket" min="1" v-model="formData.ticket" />
+      <input
+        v-model="formData.ticket"
+        type="number"
+        name="ticket"
+        class="input-block"
+        min="1"
+      >
 
       <h2 class="section-title">Branch Prefix / Issue Number <small>(both optional)</small></h2>
-      <input type="text" class="input-prefix" name="prefix" v-model="formData.prefix" />
-      <input type="number" class="input-issue" name="issue" min="1" v-model="formData.issue" />
+      <input
+        v-model="formData.prefix"
+        type="text"
+        name="prefix"
+        class="input-prefix"
+      >
+      <input
+        v-model="formData.issue"
+        type="number"
+        name="issue"
+        class="input-issue"
+        min="1"
+      >
 
       <h2 class="section-title">Branch Keyword <small>(optional)</small></h2>
-      <input type="text" class="input-block" name="keyword" v-model="formData.keyword" />
+      <input
+        v-model="formData.keyword"
+        type="text"
+        name="keyword"
+        class="input-block"
+      >
     </section>
 
     <section class="cols">
       <h2 class="section-title">Emoji</h2>
       <ul class="radio-list">
-        <li v-for="item of emojis">
+        <li v-for="item of emojis" :key="item.value">
           <label class="radio-list__label">
-            <input type="radio" class="radio-list__radio" name="emoji" :value="item.value" v-model="formData.emoji" />
+            <input
+              :value="item.value"
+              v-model="formData.emoji"
+              type="radio"
+              name="emoji"
+              class="radio-list__radio"
+            >
             <template v-if="item.bgImage">
-              <i class="radio-list__icon radio-list__icon--emoji" :style="{ backgroundImage: `url(${item.bgImage})`}">&nbsp;</i>
+              <i
+                :style="{ backgroundImage: `url(${item.bgImage})`}"
+                class="radio-list__icon radio-list__icon--emoji"
+              >
+                &nbsp;
+              </i>
             </template>
             <template v-else>
-              <i class="radio-list__icon radio-list__icon--emoji" v-html="`&#x${item.icon};`"></i>
+              <i class="radio-list__icon radio-list__icon--emoji" v-html="`&#x${item.icon};`"/>
             </template>
             <p class="radio-list__desc">{{ item.desc }}</p>
           </label>
@@ -41,8 +80,20 @@
       </ul>
 
       <h2 class="section-title">Commit Summary</h2>
-      <input type="text" class="input-block commit-summery" name="summary" v-model="formData.summary" />
-      <button type="button" class="btn" :disabled="!formData.summary" @click="addFav">fav</button>
+      <input
+        v-model="formData.summary"
+        type="text"
+        name="summary"
+        class="input-block commit-summery"
+      >
+      <button
+        :disabled="!formData.summary"
+        type="button"
+        class="btn"
+        @click="addFav"
+      >
+        fav
+      </button>
     </section>
   </form>
 </template>
@@ -53,23 +104,21 @@ import emojis from '../scripts/emojis';
 import { doesSupportEmoji } from '../scripts/helper';
 
 export default {
-  props: ['favPhrases', 'formData'],
+  props: {
+    favPhrases: {
+      type: Array,
+      required: true,
+    },
+    formData: {
+      type: Object,
+      required: true,
+    },
+  },
   data() {
     return {
       trackers,
       emojis,
     };
-  },
-  methods: {
-    addFav() {
-      const summary = this.formData.summary;
-      const index = this.favPhrases.indexOf(summary);
-      if (index !== -1) {
-        this.favPhrases.splice(index, 1);
-      }
-
-      this.favPhrases.unshift(summary);
-    },
   },
   created() {
     // Emoji非対応環境だったら、GitHubから画像を取得
@@ -84,6 +133,17 @@ export default {
         this.$set(emojis[i], 'bgImage', img.src);
       };
     });
+  },
+  methods: {
+    addFav() {
+      const { summary } = this.formData;
+      const index = this.favPhrases.indexOf(summary);
+      if (index !== -1) {
+        this.favPhrases.splice(index, 1);
+      }
+
+      this.favPhrases.unshift(summary);
+    },
   },
 };
 </script>
