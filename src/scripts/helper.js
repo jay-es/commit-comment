@@ -30,6 +30,8 @@ const doesSupportEmoji = () => {
 
 // 2つのオブジェクトの内容が同じか
 const isSameObject = (a, b) => {
+  if (typeof a !== 'object' || typeof b !== 'object') return false;
+
   const aKeys = Object.keys(a);
   const bKeys = Object.keys(b);
 

@@ -28,7 +28,6 @@ export default {
       const {
         tracker, ticket, issue, emoji, summary,
       } = this.formData;
-
       if (!tracker || !ticket || !emoji) return '';
 
       let outputText = `${tracker} #${ticket} ${emoji}`;
@@ -49,7 +48,7 @@ export default {
         copyText(this.commentText);
       }
 
-      this.$emit('addHistory', this.formData);
+      this.$store.commit('branchHistory/add', this.formData);
     },
   },
 };

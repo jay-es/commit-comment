@@ -72,7 +72,7 @@
               </i>
             </template>
             <template v-else>
-              <i class="radio-list__icon radio-list__icon--emoji" v-html="`&#x${item.icon};`"/>
+              <i class="radio-list__icon radio-list__icon--emoji" v-html="`&#x${item.icon};`" />
             </template>
             <p class="radio-list__desc">{{ item.desc }}</p>
           </label>
@@ -105,10 +105,6 @@ import { doesSupportEmoji } from '../scripts/helper';
 
 export default {
   props: {
-    favPhrases: {
-      type: Array,
-      required: true,
-    },
     formData: {
       type: Object,
       required: true,
@@ -136,13 +132,7 @@ export default {
   },
   methods: {
     addFav() {
-      const { summary } = this.formData;
-      const index = this.favPhrases.indexOf(summary);
-      if (index !== -1) {
-        this.favPhrases.splice(index, 1);
-      }
-
-      this.favPhrases.unshift(summary);
+      this.$store.commit('favPhrases/add', this.formData.summary);
     },
   },
 };
