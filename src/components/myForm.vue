@@ -101,7 +101,6 @@
 <script>
 import trackers from '../scripts/trackers';
 import emojis from '../scripts/emojis';
-import { doesSupportEmoji } from '../scripts/helper';
 
 export default {
   props: {
@@ -115,20 +114,6 @@ export default {
       trackers,
       emojis,
     };
-  },
-  created() {
-    // Emoji非対応環境だったら、GitHubから画像を取得
-    if (doesSupportEmoji()) return;
-
-    this.emojis.forEach((v, i) => {
-      const img = new Image();
-      const fileName = v.icon.toLowerCase();
-      img.src = `https://assets-cdn.github.com/images/icons/emoji/unicode/${fileName}.png`;
-
-      img.onload = () => {
-        this.$set(emojis[i], 'bgImage', img.src);
-      };
-    });
   },
   methods: {
     addFav() {
