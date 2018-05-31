@@ -1,10 +1,10 @@
 <template>
   <div>
-    <my-form v-bind="$data" />
-    <comment v-bind="$data" />
+    <my-form />
+    <comment />
     <div class="row">
-      <history-list v-bind="$data" class="cols" />
-      <fav-list v-bind="$data" class="cols" />
+      <history-list class="cols" />
+      <fav-list class="cols" />
     </div>
     <read-me />
   </div>
@@ -25,24 +25,11 @@ export default {
     favList,
     readMe,
   },
-  data() {
-    return {
-      formData: {
-        tracker: '',
-        ticket: '',
-        prefix: '',
-        issue: '',
-        keyword: '',
-        emoji: '',
-        summary: '',
-      },
-    };
-  },
   created() {
     // 前回を復元
     const { branchHistory } = this.$store.state;
     if (branchHistory.length) {
-      Object.assign(this.formData, branchHistory[0]);
+      this.$store.dispatch('formData/setAll', branchHistory[0]);
     }
   },
 };

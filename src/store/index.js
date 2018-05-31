@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import branchHistory from './branchHistory';
 import favPhrases from './favPhrases';
+import formData from './formData';
 
 Vue.use(Vuex);
 
@@ -11,6 +12,7 @@ export default new Vuex.Store({
   modules: {
     branchHistory,
     favPhrases,
+    formData,
   },
   strict: debug,
 });

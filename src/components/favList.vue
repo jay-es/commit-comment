@@ -16,18 +16,12 @@ import { mapState } from 'vuex';
 import { copyText } from '../scripts/helper';
 
 export default {
-  props: {
-    formData: {
-      type: Object,
-      required: true,
-    },
-  },
   computed: mapState([
     'favPhrases',
   ]),
   methods: {
     restore(index) {
-      this.formData.summary = this.favPhrases[index];
+      this.$store.commit('formData/set', ['summary', this.favPhrases[index]]);
       document.getElementsByClassName('commit-summery')[0].focus();
     },
     remove(index) {

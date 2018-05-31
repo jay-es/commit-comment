@@ -17,12 +17,6 @@
 import { copyText } from '../scripts/helper';
 
 export default {
-  props: {
-    formData: {
-      type: Object,
-      required: true,
-    },
-  },
   computed: {
     commentText() {
       const {
@@ -35,6 +29,9 @@ export default {
       outputText += ` ${summary}`;
 
       return outputText;
+    },
+    formData() {
+      return this.$store.state.formData;
     },
   },
   methods: {

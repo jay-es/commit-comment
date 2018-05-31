@@ -11,7 +11,21 @@ module.exports = {
     'vue',
   ],
   rules: {
-    'vue/max-attributes-per-line': [2, { singleline: 2 }],
-    'vue/no-parsing-error': [2, { 'absence-of-digits-in-numeric-character-reference': false }],
+    'vue/max-attributes-per-line': [2, {
+      singleline: 2,
+    }],
+    'vue/no-parsing-error': [2, {
+      'absence-of-digits-in-numeric-character-reference': false,
+    }],
+  },
+
+  overrides: {
+    files: 'src/store/*.js',
+    rules: {
+      'no-param-reassign': [2, {
+        props: true,
+        ignorePropertyModificationsFor: ['state'],
+      }],
+    },
   },
 };

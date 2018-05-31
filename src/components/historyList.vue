@@ -23,18 +23,12 @@ import { mapState } from 'vuex';
 import { copyText } from '../scripts/helper';
 
 export default {
-  props: {
-    formData: {
-      type: Object,
-      required: true,
-    },
-  },
   computed: mapState([
     'branchHistory',
   ]),
   methods: {
     restore(index) {
-      Object.assign(this.formData, this.branchHistory[index]);
+      this.$store.dispatch('formData/setAll', this.branchHistory[index]);
     },
     remove(index) {
       this.$store.dispatch('branchHistory/remove', index);
