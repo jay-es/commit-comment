@@ -30,6 +30,8 @@ const doesSupportEmoji = () => {
 
 // 2つのオブジェクトの内容が同じか
 const isSameObject = (a, b) => {
+  if (typeof a !== 'object' || typeof b !== 'object') return false;
+
   const aKeys = Object.keys(a);
   const bKeys = Object.keys(b);
 
@@ -40,9 +42,15 @@ const isSameObject = (a, b) => {
   return aKeys.every(v => a[v] === b[v]);
 };
 
+// localStorageに保存
+const setStorage = (keyName, keyValue) => {
+  localStorage.setItem(keyName, JSON.stringify(keyValue));
+};
+
 export {
   copyText,
   doesSupportEmoji,
   isSameObject,
+  setStorage,
 };
 

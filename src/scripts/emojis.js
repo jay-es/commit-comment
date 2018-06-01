@@ -1,4 +1,7 @@
-export default [
+import Vue from 'vue';
+import { doesSupportEmoji } from './helper';
+
+const emojis = [
   {
     value: ':bug:',
     icon: '1F41B',
@@ -50,3 +53,18 @@ export default [
     desc: 'セキュリティ関連の改善',
   },
 ];
+
+// Emoji非対応環境だったらGitHubから画像を取得
+if (!doesSupportEmoji()) {
+  emojis.forEach((v) => {
+    const img = new Image();
+    const fileName = v.icon.toLowerCase();
+    img.src = `https://assets-cdn.github.com/images/icons/emoji/unicode/${fileName}.png`;
+
+    img.onload = () => {
+      Vue.set(v, 'bgImage', img.src);
+    };
+  });
+}
+
+export default emojis;

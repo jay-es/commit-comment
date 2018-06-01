@@ -17,18 +17,11 @@
 import { copyText } from '../scripts/helper';
 
 export default {
-  props: {
-    formData: {
-      type: Object,
-      required: true,
-    },
-  },
   computed: {
     commentText() {
       const {
         tracker, ticket, issue, emoji, summary,
       } = this.formData;
-
       if (!tracker || !ticket || !emoji) return '';
 
       let outputText = `${tracker} #${ticket} ${emoji}`;
@@ -36,6 +29,9 @@ export default {
       outputText += ` ${summary}`;
 
       return outputText;
+    },
+    formData() {
+      return this.$store.state.formData;
     },
   },
   methods: {
@@ -49,7 +45,7 @@ export default {
         copyText(this.commentText);
       }
 
-      this.$emit('addHistory', this.formData);
+      this.$store.dispatch('branchHistory/add', this.formData);
     },
   },
 };

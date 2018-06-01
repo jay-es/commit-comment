@@ -12,26 +12,20 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import { copyText } from '../scripts/helper';
 
 export default {
-  props: {
-    favPhrases: {
-      type: Array,
-      required: true,
-    },
-    formData: {
-      type: Object,
-      required: true,
-    },
-  },
+  computed: mapState([
+    'favPhrases',
+  ]),
   methods: {
     restore(index) {
-      this.formData.summary = this.favPhrases[index];
+      this.$store.commit('formData/set', ['summary', this.favPhrases[index]]);
       document.getElementsByClassName('commit-summery')[0].focus();
     },
     remove(index) {
-      this.favPhrases.splice(index, 1);
+      this.$store.dispatch('favPhrases/remove', index);
     },
     copy($event) {
       copyText($event.target.textContent);

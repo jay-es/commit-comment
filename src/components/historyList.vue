@@ -5,7 +5,6 @@
       <li v-for="(item, index) of branchHistory" :key="index + item">
         <button class="btn" @click="restore(index)">restore</button>
         <button class="btn" @click="remove(index)">remove</button>
-        <button class="btn" @click="remove(index)">remove</button>
         <a
           :href="`https://kbn.glamour-sales.com/issues/${item.ticket}`"
           class="text-link history-list__redmine-link"
@@ -20,25 +19,19 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import { copyText } from '../scripts/helper';
 
 export default {
-  props: {
-    formData: {
-      type: Object,
-      required: true,
-    },
-    historyData: {
-      type: Array,
-      required: true,
-    },
-  },
+  computed: mapState([
+    'branchHistory',
+  ]),
   methods: {
     restore(index) {
-      Object.assign(this.formData, this.historyData[index]);
+      this.$store.dispatch('formData/setAll', this.branchHistory[index]);
     },
     remove(index) {
-      this.historyData.splice(index, 1);
+      this.$store.dispatch('branchHistory/remove', index);
     },
     copy($event) {
       copyText($event.target.textContent);
