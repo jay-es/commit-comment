@@ -10,8 +10,7 @@
           class="text-link history-list__redmine-link"
           target="_blank"
         >
-          Redmine
-        </a>
+          Redmine</a>
         <span class="history-list__branch-name" @click="copy">{{ branchName(item) }}</span>
       </li>
     </ul>
@@ -76,4 +75,11 @@ $gladd-red: #d8263c;
     color: inherit;
   }
 }
+</style>
+
+<style scoped>
+  .history-list__branch-name {
+    margin-left: 2px;
+    font-family: monospace;
+  }
 </style>
