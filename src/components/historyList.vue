@@ -6,7 +6,7 @@
         <button class="btn" @click="restore(index)">restore</button>
         <button class="btn" @click="remove(index)">remove</button>
         <a
-          :href="`https://kbn.glamour-sales.com/issues/${item.ticket}`"
+          :href="`https://kbn.gladd.jp/issues/${item.ticket}`"
           class="text-link history-list__redmine-link"
           target="_blank"
         >
