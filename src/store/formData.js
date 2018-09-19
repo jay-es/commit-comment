@@ -19,7 +19,7 @@ export default {
       const hasNewData = {}.hasOwnProperty.bind(newData);
 
       // 全キーでコミット
-      Object.keys(state).forEach((key) => {
+      Object.keys(state).forEach(key => {
         if (!hasNewData(key)) return;
 
         commit('set', [key, newData[key]]);

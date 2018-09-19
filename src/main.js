@@ -2,7 +2,8 @@ import Vue from 'vue';
 import App from './App.vue';
 import store from './store';
 
-new Vue({ // eslint-disable-line no-new
+// eslint-disable-next-line no-new
+new Vue({
   el: '#app',
   store,
   render: h => h(App),

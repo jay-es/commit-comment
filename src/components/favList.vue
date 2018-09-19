@@ -16,9 +16,7 @@ import { mapState } from 'vuex';
 import { copyText } from '../scripts/helper';
 
 export default {
-  computed: mapState([
-    'favPhrases',
-  ]),
+  computed: mapState(['favPhrases']),
   methods: {
     restore(index) {
       this.$store.commit('formData/set', ['summary', this.favPhrases[index]]);

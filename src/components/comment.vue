@@ -19,9 +19,7 @@ import { copyText } from '../scripts/helper';
 export default {
   computed: {
     commentText() {
-      const {
-        tracker, ticket, issue, emoji, summary,
-      } = this.formData;
+      const { tracker, ticket, issue, emoji, summary } = this.formData;
       if (!tracker || !ticket || !emoji) return '';
 
       let outputText = `${tracker} #${ticket} ${emoji}`;
@@ -57,8 +55,8 @@ export default {
 }
 
 .comment-output {
-  margin-bottom: .5em;
-  padding: .75em;
+  margin-bottom: 0.5em;
+  padding: 0.75em;
   border: none;
   background-color: #000;
   width: 50em;

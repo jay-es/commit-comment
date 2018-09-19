@@ -146,7 +146,7 @@ $gladd-red: #d8263c;
   font-size: 12px;
 
   & > li {
-    margin-bottom: .5em;
+    margin-bottom: 0.5em;
   }
 }
 
@@ -163,7 +163,7 @@ $gladd-red: #d8263c;
 .radio-list__icon {
   display: inline-block;
   vertical-align: middle;
-  margin-right: .25em;
+  margin-right: 0.25em;
   border: 1px solid #666;
   width: 24px;
   line-height: 24px;
@@ -202,7 +202,7 @@ $gladd-red: #d8263c;
 .input-prefix,
 .input-issue {
   display: inline-block;
-  padding: .25em;
+  padding: 0.25em;
   width: 8em;
 }
 

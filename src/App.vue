@@ -58,7 +58,7 @@ body {
   font-size: 12px;
 
   & ~ & {
-  margin-top: 1.25em;
+    margin-top: 1.25em;
   }
 }
 
@@ -68,14 +68,14 @@ body {
 
 .input-block {
   display: block;
-  padding: .25em;
+  padding: 0.25em;
 }
 
 .text-link {
   color: initial;
 
   &:hover {
-  color: $gladd-red;
+    color: $gladd-red;
   }
 }
 

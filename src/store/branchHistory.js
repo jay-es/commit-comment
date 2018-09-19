@@ -23,16 +23,8 @@ export default {
     },
   },
   actions: {
-    add({ commit, state }, {
-      tracker, ticket, prefix, issue, keyword,
-    }) {
-      const newHistory = {
-        tracker,
-        ticket,
-        prefix,
-        issue,
-        keyword,
-      };
+    add({ commit, state }, { tracker, ticket, prefix, issue, keyword }) {
+      const newHistory = { tracker, ticket, prefix, issue, keyword };
 
       commit('add', newHistory);
       setStorage('branchHistory', state);

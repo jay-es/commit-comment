@@ -22,9 +22,7 @@ import { mapState } from 'vuex';
 import { copyText } from '../scripts/helper';
 
 export default {
-  computed: mapState([
-    'branchHistory',
-  ]),
+  computed: mapState(['branchHistory']),
   methods: {
     restore(index) {
       this.$store.dispatch('formData/setAll', this.branchHistory[index]);
@@ -35,9 +33,7 @@ export default {
     copy($event) {
       copyText($event.target.textContent);
     },
-    branchName({
-      tracker, ticket, prefix, issue, keyword,
-    }) {
+    branchName({ tracker, ticket, prefix, issue, keyword }) {
       let text = `${tracker}-${ticket}`;
       if (prefix) text += `-${prefix}`;
       if (issue) text += `-${issue}`;
@@ -61,7 +57,7 @@ $gladd-red: #d8263c;
   padding-left: 2em;
 
   & > li {
-  margin-bottom: .5em;
+    margin-bottom: 0.5em;
   }
 }
 
@@ -78,8 +74,8 @@ $gladd-red: #d8263c;
 </style>
 
 <style scoped>
-  .history-list__branch-name {
-    margin-left: 2px;
-    font-family: monospace;
-  }
+.history-list__branch-name {
+  margin-left: 2px;
+  font-family: monospace;
+}
 </style>

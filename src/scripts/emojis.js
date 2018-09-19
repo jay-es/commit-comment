@@ -56,7 +56,7 @@ const emojis = [
 
 // Emoji非対応環境だったらGitHubから画像を取得
 if (!doesSupportEmoji()) {
-  emojis.forEach((v) => {
+  emojis.forEach(v => {
     const img = new Image();
     const fileName = v.icon.toLowerCase();
     img.src = `https://assets-cdn.github.com/images/icons/emoji/unicode/${fileName}.png`;

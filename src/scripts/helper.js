@@ -1,5 +1,5 @@
 // クリップボードにコピー
-const copyText = (textVal) => {
+const copyText = textVal => {
   const body = document.getElementsByTagName('body')[0];
   const tmpForm = document.createElement('textarea');
   tmpForm.textContent = textVal;
@@ -12,7 +12,6 @@ const copyText = (textVal) => {
   body.removeChild(tmpForm);
 };
 
-
 // iOS6のEmojiが使える環境かどうか
 // https://gist.github.com/mwunsch/4710561
 const doesSupportEmoji = () => {
@@ -20,7 +19,7 @@ const doesSupportEmoji = () => {
   if (!canvas.getContext) return false;
   const context = canvas.getContext('2d');
   if (typeof context.fillText !== 'function') return false;
-  const target = String.fromCodePoint(0x1F604);
+  const target = String.fromCodePoint(0x1f604);
 
   context.textBaseline = 'top';
   context.font = '32px Arial';
@@ -47,10 +46,4 @@ const setStorage = (keyName, keyValue) => {
   localStorage.setItem(keyName, JSON.stringify(keyValue));
 };
 
-export {
-  copyText,
-  doesSupportEmoji,
-  isSameObject,
-  setStorage,
-};
-
+export { copyText, doesSupportEmoji, isSameObject, setStorage };

@@ -1,4 +1,7 @@
 module.exports = {
+  parserOptions: {
+    parser: 'babel-eslint',
+  },
   env: {
     browser: true,
     es6: true,
@@ -6,11 +9,14 @@ module.exports = {
   extends: [
     'airbnb-base',
     'plugin:vue/recommended',
+    'prettier',
   ],
   plugins: [
+    'prettier',
     'vue',
   ],
   rules: {
+    'prettier/prettier': [2, require('./.prettierrc')],
     'vue/max-attributes-per-line': [2, {
       singleline: 2,
     }],
