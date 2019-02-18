@@ -59,7 +59,7 @@ if (!doesSupportEmoji()) {
   emojis.forEach(v => {
     const img = new Image();
     const fileName = v.icon.toLowerCase();
-    img.src = `https://assets-cdn.github.com/images/icons/emoji/unicode/${fileName}.png`;
+    img.src = `https://github.githubassets.com/images/icons/emoji/unicode/${fileName}.png`;
 
     img.onload = () => {
       Vue.set(v, 'bgImage', img.src);
