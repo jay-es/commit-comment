@@ -29,7 +29,7 @@
 
       <h2 class="section-title">Branch Prefix / Issue Number <small>(both optional)</small></h2>
       <input
-        v-model="prefix"
+        v-model.trim="prefix"
         type="text"
         name="prefix"
         class="input-prefix"
@@ -44,7 +44,7 @@
 
       <h2 class="section-title">Branch Keyword <small>(optional)</small></h2>
       <input
-        v-model="keyword"
+        v-model.trim="keyword"
         type="text"
         name="keyword"
         class="input-block"
@@ -81,7 +81,7 @@
 
       <h2 class="section-title">Commit Summary</h2>
       <input
-        v-model="summary"
+        v-model.trim="summary"
         type="text"
         name="summary"
         class="input-block commit-summery"
